@@ -1,6 +1,6 @@
 import math
 
-def estimator():
+def estimator(data):
     """covid-19 impact estimator"""
     # pylint: disable=unused-variable
     # pylint: disable=pointless-string-statement
@@ -54,24 +54,28 @@ def estimator():
     dollars_in_flight_severe = int(infections_by_requested_time_severe * input_data['region']['avgDailyIncomeInUSD'] * input_data['timeToElapse'])
 
     output = {
-        "data": input_data,
-        "impact": {
-            "currentlyInfected": currently_infected_impact,
-            "infectionsByRequestedTime": infections_by_requested_time_impact,
-            "severeCasesByRequestedTime": severe_cases_by_requested_time_impact,
-            "hospitalBedsByRequestedTime": beds_impact,
-            "casesForICUByRequestedTime": cases_for_icu_by_requested_time_impact,
-            "casesForVentilatorsByRequestedTime":cases_for_ventilators_impact,
-            "dollarsInFlight": dollars_in_flight_impact
-        },
-        "severe_impact": {
-            "currentlyInfected": currently_infected_severe,
-            "infectionsByRequestedTime": infections_by_requested_time_severe,
-            "severeCasesByRequestedTime": severe_cases_by_requested_time_severe,
-            "hospitalBedsByRequestedTime": beds_severe,
-            "casesForICUByRequestedTime": cases_for_icu_by_requested_time_severe,
-            "casesForVentilatorsByRequestedTime":cases_for_ventilators_severe,
-            "dollarsInFlight": dollars_in_flight_severe
+        "data": data,
+
+        "estimates": {
+            "impact": {
+                "currentlyInfected": currently_infected_impact,
+                "infectionsByRequestedTime": infections_by_requested_time_impact,
+                "severeCasesByRequestedTime": severe_cases_by_requested_time_impact,
+                "hospitalBedsByRequestedTime": beds_impact,
+                "casesForICUByRequestedTime": cases_for_icu_by_requested_time_impact,
+                "casesForVentilatorsByRequestedTime":cases_for_ventilators_impact,
+                "dollarsInFlight": dollars_in_flight_impact
+            },
+            "severe_impact": {
+                "currentlyInfected": currently_infected_severe,
+                "infectionsByRequestedTime": infections_by_requested_time_severe,
+                "severeCasesByRequestedTime": severe_cases_by_requested_time_severe,
+                "hospitalBedsByRequestedTime": beds_severe,
+                "casesForICUByRequestedTime": cases_for_icu_by_requested_time_severe,
+                "casesForVentilatorsByRequestedTime":cases_for_ventilators_severe,
+                "dollarsInFlight": dollars_in_flight_severe
+            }
+
         }
     }
 
