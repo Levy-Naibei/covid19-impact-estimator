@@ -1,14 +1,13 @@
 import math
-import json
 
-def estimator():
+def estimator(data):
     """covid-19 impact estimator"""
     # pylint: disable=unused-variable
     # pylint: disable=pointless-string-statement
 
     # pylint: disable = undefined-variable
 
-    data = {
+    input_data = {
         "region": {
             "name": "Africa",
             "avgAge": 19.7,
@@ -55,7 +54,7 @@ def estimator():
     dollars_in_flight_severe = math.floor(infections_by_requested_time_severe * data['region']['avgDailyIncomeInUSD'] * data['timeToElapse'])
 
     output = {
-        "input_data": data,
+        input_data: data,
         "impact": {
             "currentlyInfected": currently_infected_impact,
             "infectionsByRequestedTime": infections_by_requested_time_impact,
@@ -76,6 +75,4 @@ def estimator():
         }
     }
 
-    return json.dumps(output)
-
-print(estimator())
+    return output
