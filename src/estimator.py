@@ -1,13 +1,14 @@
-import math
 
-def estimator():
+def estimator(data):
     """covid-19 impact estimator"""
     # pylint: disable=unused-variable
     # pylint: disable=pointless-string-statement
 
     # pylint: disable = undefined-variable
 
-    data = {
+    input_data = data
+
+    input_data = {
         "region": {
             "name": "Africa",
             "avgAge": 19.7,
@@ -23,8 +24,8 @@ def estimator():
 
     # challenge-1
     """ estimate currently infected """
-    currently_infected_impact = int(data['reportedCases'] * 10)
-    currently_infected_severe = int(data['reportedCases'] * 50)
+    currently_infected_impact = int(input_data['reportedCases'] * 10)
+    currently_infected_severe = int(input_data['reportedCases'] * 50)
 
     """ estimate projected infections """
     infections_by_requested_time_impact = currently_infected_impact * 2**20
@@ -36,7 +37,7 @@ def estimator():
     severe_cases_by_requested_time_severe = 0.15 * infections_by_requested_time_severe
 
     """estimate beds available for covid-19 positive patients"""
-    total_beds_for_covid_19_patients = 0.35 * data['totalHospitalBeds']
+    total_beds_for_covid_19_patients = 0.35 * input_data['totalHospitalBeds']
     beds_impact = total_beds_for_covid_19_patients - severe_cases_by_requested_time_impact
     beds_severe = total_beds_for_covid_19_patients - severe_cases_by_requested_time_severe
 
@@ -50,11 +51,11 @@ def estimator():
     cases_for_ventilators_severe = 0.02 * infections_by_requested_time_severe
 
     """estimate dollars to be lost"""
-    dollars_in_flight_impact = int(infections_by_requested_time_impact * data['region']['avgDailyIncomeInUSD']* data['timeToElapse'])
-    dollars_in_flight_severe = int(infections_by_requested_time_severe * data['region']['avgDailyIncomeInUSD'] * data['timeToElapse'])
+    dollars_in_flight_impact = int(infections_by_requested_time_impact * input_data['region']['avgDailyIncomeInUSD']* input_data['timeToElapse'])
+    dollars_in_flight_severe = int(infections_by_requested_time_severe * input_data['region']['avgDailyIncomeInUSD'] * input_data['timeToElapse'])
 
     output = {
-        "data": data,
+        "data": input_data,
 
         "estimate": {
             "impact": {
