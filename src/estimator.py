@@ -58,8 +58,8 @@ def estimator(data):
     output = {
         "data": input_data,
         "impact": {
-            "currently_infected": currently_infected_impact,
-            "infections_by_requested_time": infections_by_requested_time_impact
+            "currentlyInfected": currently_infected_impact,
+            "infectionsByRequestedTime": infections_by_requested_time_impact
             # "severeCasesByRequestedTime": severe_cases_by_requested_time_impact,
             # "hospitalBedsByRequestedTime": beds_impact,
             # "casesForICUByRequestedTime": cases_for_icu_by_requested_time_impact,
