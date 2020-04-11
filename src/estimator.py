@@ -57,27 +57,23 @@ def estimator(data):
 
     output = {
         "data": input_data,
-
-        "estimate": {
-            "impact": {
-                "currently_infected": currently_infected_impact,
-                "infections_by_requested_time": infections_by_requested_time_impact
-                # "severeCasesByRequestedTime": severe_cases_by_requested_time_impact,
-                # "hospitalBedsByRequestedTime": beds_impact,
-                # "casesForICUByRequestedTime": cases_for_icu_by_requested_time_impact,
-                # "casesForVentilatorsByRequestedTime":cases_for_ventilators_impact,
-                # "dollarsInFlight": dollars_in_flight_impact
-            },
-            "severeImpact": {
-                "currentlyInfected": currently_infected_severe,
-                "infectionsByRequestedTime": infections_by_requested_time_severe
-                # "severeCasesByRequestedTime": severe_cases_by_requested_time_severe,
-                # "hospitalBedsByRequestedTime": beds_severe,
-                # "casesForICUByRequestedTime": cases_for_icu_by_requested_time_severe,
-                # "casesForVentilatorsByRequestedTime":cases_for_ventilators_severe,
-                # "dollarsInFlight": dollars_in_flight_severe
-            }
-
+        "impact": {
+            "currently_infected": currently_infected_impact,
+            "infections_by_requested_time": infections_by_requested_time_impact
+            # "severeCasesByRequestedTime": severe_cases_by_requested_time_impact,
+            # "hospitalBedsByRequestedTime": beds_impact,
+            # "casesForICUByRequestedTime": cases_for_icu_by_requested_time_impact,
+            # "casesForVentilatorsByRequestedTime":cases_for_ventilators_impact,
+            # "dollarsInFlight": dollars_in_flight_impact
+        },
+        "severeImpact": {
+            "currentlyInfected": currently_infected_severe,
+            "infectionsByRequestedTime": infections_by_requested_time_severe
+            # "severeCasesByRequestedTime": severe_cases_by_requested_time_severe,
+            # "hospitalBedsByRequestedTime": beds_severe,
+            # "casesForICUByRequestedTime": cases_for_icu_by_requested_time_severe,
+            # "casesForVentilatorsByRequestedTime":cases_for_ventilators_severe,
+            # "dollarsInFlight": dollars_in_flight_severe
         }
     }
 
