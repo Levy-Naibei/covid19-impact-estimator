@@ -60,8 +60,8 @@ def estimator(data):
 
         "estimate": {
             "impact": {
-                "currentlyInfected": currently_infected_impact,
-                "infectionsByRequestedTime": infections_by_requested_time_impact
+                "currently_infected": currently_infected_impact,
+                "infections_by_requested_time": infections_by_requested_time_impact
                 # "severeCasesByRequestedTime": severe_cases_by_requested_time_impact,
                 # "hospitalBedsByRequestedTime": beds_impact,
                 # "casesForICUByRequestedTime": cases_for_icu_by_requested_time_impact,
@@ -70,7 +70,7 @@ def estimator(data):
             },
             "severeImpact": {
                 "currentlyInfected": currently_infected_severe,
-                "infectionsByRequestedTime": infections_by_requested_time_severe,
+                "infectionsByRequestedTime": infections_by_requested_time_severe
                 # "severeCasesByRequestedTime": severe_cases_by_requested_time_severe,
                 # "hospitalBedsByRequestedTime": beds_severe,
                 # "casesForICUByRequestedTime": cases_for_icu_by_requested_time_severe,
