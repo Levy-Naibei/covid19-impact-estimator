@@ -28,9 +28,9 @@ def estimator(data):
     currently_infected_severe = int(input_data['reportedCases'] * 50)
 
     """ estimate projected infections """
-    time_to_elapse = math.trunc(int(input_data['timeToElapse']/3))
-    infections_by_requested_time_impact = currently_infected_impact * time_to_elapse
-    infections_by_requested_time_severe = currently_infected_severe * time_to_elapse
+    time_to_elapse = int(input_data['timeToElapse']/3)
+    infections_by_requested_time_impact = int(currently_infected_impact * time_to_elapse)
+    infections_by_requested_time_severe = int(currently_infected_severe * time_to_elapse)
 
     # # challenge-2
     # """estimate severe positive cases that require hospitalization to recover"""
