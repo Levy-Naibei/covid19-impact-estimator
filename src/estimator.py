@@ -14,7 +14,7 @@ def estimator(data):
         time_to_elapse = data['timeToElapse'] * 30
 
     time_to_elapse = 2 ** (int(time_to_elapse/ 3))
-    total_hospital_beds = int(0.35 * data['totalHospitalBeds'])
+    total_hospital_beds = data['totalHospitalBeds'] * 0.35
     daily_income = int(data['region']['avgDailyIncomeInUSD'])
     daily_income_population = int(data['region']['avgDailyIncomePopulation'])
 
@@ -32,9 +32,9 @@ def estimator(data):
     impact['severeCasesByRequestedTime'] = int(0.15 * impact['infectionsByRequestedTime'])
     severe_impact['severeCasesByRequestedTime'] = int(0.15 * severe_impact['infectionsByRequestedTime'])
 
-    # total_hospital_beds
-    impact['hospitalBedsByRequestedTime'] = total_hospital_beds - impact['severeCasesByRequestedTime']
-    severe_impact['hospitalBedsByRequestedTime'] = total_hospital_beds - severe_impact['severeCasesByRequestedTime']
+    # total_hospital_beds for covid positive patients
+    impact['hospitalBedsByRequestedTime'] = int(total_hospital_beds - impact['severeCasesByRequestedTime'])
+    severe_impact['hospitalBedsByRequestedTime'] = int(total_hospital_beds - severe_impact['severeCasesByRequestedTime'])
 
     # challenge-3
     # casesForICUByRequestedTime
