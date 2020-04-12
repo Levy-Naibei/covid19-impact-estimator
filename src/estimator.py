@@ -3,7 +3,7 @@ def estimator(data):
   severe_impact = {}  # your severe case estimation
   # import pdb; pdb.set_trace()
   total_hospital_beds = int(0.35 * data['totalHospitalBeds'])
-  time_to_elapse = 2 ** (int(data['timeToElapse'] / 3))
+  time_to_elapse = int(2 ** (int(data['timeToElapse'] / 3)))
 
   # currentlyInfected
   impact['currentlyInfected'] = int(data['reportedCases'] * 10)
