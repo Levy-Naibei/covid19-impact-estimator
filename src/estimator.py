@@ -3,7 +3,7 @@ def estimator(data):
   severe_impact = {}  # your severe case estimation
   # import pdb; pdb.set_trace()
   total_hospital_beds = int(0.35 * data['totalHospitalBeds'])
-  time_to_elapse = int(2 ** (data['timeToElapse'] / 3))
+  time_to_elapse = 2 ** (int(data['timeToElapse'] / 3))
 
   # currentlyInfected
   impact['currentlyInfected'] = int(data['reportedCases'] * 10)
@@ -15,7 +15,8 @@ def estimator(data):
 
   # # severeCasesByRequestedTime
   # impact['severeCasesByRequestedTime'] = int(0.15 * impact['infectionsByRequestedTime'])
-  # severe_impact['severeCasesByRequestedTime'] = int(0.15 * severe_impact['infectionsByRequestedTime'])
+  # severe_impact['severeCasesByRequestedTime'] = int(0.15 * severe_impact[
+  #                                                 'infectionsByRequestedTime'])
   #
   # # total_hospital_beds
   # impact['hospitalBedsByRequestedTime'] = total_hospital_beds - impact[
@@ -25,15 +26,18 @@ def estimator(data):
   #
   # # casesForICUByRequestedTime
   # impact['casesForICUByRequestedTime'] = int(0.05 * impact['infectionsByRequestedTime'])
-  # severe_impact['casesForICUByRequestedTime'] = int(0.05 * severe_impact['infectionsByRequestedTime'])
+  # severe_impact['casesForICUByRequestedTime'] = int(0.05 * severe_impact[
+  #                                                'infectionsByRequestedTime'])
   #
   # # casesForVentilatorsByRequestedTime
   # impact['casesForVentilatorsByRequestedTime'] = int(0.02 * impact['infectionsByRequestedTime'])
-  # severe_impact['casesForVentilatorsByRequestedTime'] = int(0.02 * severe_impact['infectionsByRequestedTime'])
+  # severe_impact['casesForVentilatorsByRequestedTime'] = int(0.02 * severe_impact[
+  #                                                        'infectionsByRequestedTime'])
   #
   # # dollarsInFlight
   # impact['dollarsInFlight'] = int((impact['infectionsByRequestedTime'] * 0.65 * 1.5) / 30)
-  # severe_impact['dollarsInFlight'] = int((severe_impact['infectionsByRequestedTime'] * 0.65 * 1.5) / 30)
+  # severe_impact['dollarsInFlight'] = int((severe_impact[
+  #                                        'infectionsByRequestedTime'] * 0.65 * 1.5) / 30)
 
   output = {
     "data": data,
