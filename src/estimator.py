@@ -8,15 +8,19 @@ def estimator(data):
 
     if data['periodType'] == 'days':
         time_to_elapse = data['timeToElapse']
+        daily_income = data['region']['avgDailyIncomeInUSD']
+        popl = data['region']['avgDailyIncomePopulation']
     elif data['periodType'] == 'weeks':
         time_to_elapse = data['timeToElapse'] * 7
+        daily_income = int((data['region']['avgDailyIncomeInUSD']) / 7)
+        popl = int((data['region']['avgDailyIncomePopulation']) / 7)
     elif data['periodType'] == 'months':
         time_to_elapse = data['timeToElapse'] * 30
+        daily_income = int((data['region']['avgDailyIncomeInUSD']) / 30)
+        popl = int((data['region']['avgDailyIncomePopulation']) / 30)
 
     time_to_elapse = 2 ** (int(time_to_elapse/ 3))
     total_hospital_beds = data['totalHospitalBeds'] * 0.35
-    daily_income = int(data['region']['avgDailyIncomeInUSD'])
-    popl = int(data['region']['avgDailyIncomePopulation'])
 
     # challenge-1
     # currentlyInfected
