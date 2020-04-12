@@ -16,7 +16,8 @@ def estimator(data):
     time_to_elapse = 2 ** (int(time_to_elapse/ 3))
     total_hospital_beds = data['totalHospitalBeds'] * 0.35
     daily_income = data['region']['avgDailyIncomeInUSD']
-    daily_income_population = data['region']['avgDailyIncomePopulation']
+    impact_population = int(impact['infectionsByRequestedTime'] / data['population'])
+    severe_population = int(severe_impact['infectionsByRequestedTime'] / data['population'])
 
     # challenge-1
     # currentlyInfected
@@ -46,8 +47,8 @@ def estimator(data):
     severe_impact['casesForVentilatorsByRequestedTime'] = int(0.02 * severe_impact['infectionsByRequestedTime'])
 
     # dollarsInFlight
-    impact['dollarsInFlight'] = int((impact['infectionsByRequestedTime'] * daily_income_population * daily_income) / time_to_elapse)
-    severe_impact['dollarsInFlight'] = int((severe_impact['infectionsByRequestedTime'] * daily_income_population * daily_income) / time_to_elapse)
+    impact['dollarsInFlight'] = int((impact['infectionsByRequestedTime'] * impact_population * daily_income) / time_to_elapse)
+    severe_impact['dollarsInFlight'] = int((severe_impact['infectionsByRequestedTime'] * severe_population * daily_income) / time_to_elapse)
 
     output = {
         "data": data,
