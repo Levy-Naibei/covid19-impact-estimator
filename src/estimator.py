@@ -15,8 +15,8 @@ def estimator(data):
 
     time_to_elapse = 2 ** (int(time_to_elapse/ 3))
     total_hospital_beds = data['totalHospitalBeds'] * 0.35
-    daily_income = int(data['region']['avgDailyIncomeInUSD'])
-    daily_income_population = int(data['region']['avgDailyIncomePopulation'])
+    daily_income = data['region']['avgDailyIncomeInUSD']
+    daily_income_population = data['region']['avgDailyIncomePopulation']
 
     # challenge-1
     # currentlyInfected
