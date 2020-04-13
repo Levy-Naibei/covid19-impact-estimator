@@ -17,7 +17,6 @@ def estimator(data):
     total_hospital_beds = data['totalHospitalBeds'] * 0.35
     daily_income = data['region']['avgDailyIncomeInUSD']
     popl = data['region']['avgDailyIncomePopulation']
-    time_to_elapse = data['timeToElapse']
 
     # challenge-1
     # currentlyInfected
