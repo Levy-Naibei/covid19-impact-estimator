@@ -3,7 +3,6 @@ def estimator(data):
     """function to estimate covid-19 impact"""
 
     # pylint: disable = line-too-long
-    global time_to_elapse
     impact = {}  # your best case estimation
     severe_impact = {}  # your severe case estimation
 
@@ -16,8 +15,9 @@ def estimator(data):
 
     time_to_elapse = 2 ** (int(time_to_elapse/ 3))
     total_hospital_beds = data['totalHospitalBeds'] * 0.35
-    daily_income = int(data['region']['avgDailyIncomeInUSD'])
-    popl = int(data['region']['avgDailyIncomePopulation'])
+    daily_income = data['region']['avgDailyIncomeInUSD']
+    popl = data['region']['avgDailyIncomePopulation']
+    num_of_days = data['timeToElapse']
 
     # challenge-1
     # currentlyInfected
@@ -47,8 +47,8 @@ def estimator(data):
     severe_impact['casesForVentilatorsByRequestedTime'] = int(0.02 * severe_impact['infectionsByRequestedTime'])
 
     # dollarsInFlight
-    impact['dollarsInFlight'] = int((impact['infectionsByRequestedTime'] * popl * daily_income) / time_to_elapse)
-    severe_impact['dollarsInFlight'] = int((severe_impact['infectionsByRequestedTime'] * popl * daily_income) / time_to_elapse)
+    impact['dollarsInFlight'] = int((impact['infectionsByRequestedTime'] * popl * daily_income) / num_of_days)
+    severe_impact['dollarsInFlight'] = int((severe_impact['infectionsByRequestedTime'] * popl * daily_income) / num_of_days)
 
     output = {
         "data": data,
