@@ -13,10 +13,8 @@ node_modules/
 audits/
 
 # venv
-.env
-.venv
-env/
-venv/
+.venv/
+../env/
 
 # __pycache__
 src/__pycache__
