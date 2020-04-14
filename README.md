@@ -16,8 +16,8 @@
 * Run `python run.py` to start the server
 * On Postman address bar put `localhost:5000/api/v1/on-covid-19` to consume the API
 * Add input data in the body and send POST resquests
-* Add `json` or `xml` or `logs` on the endpoint and send POST requests
-* Add `logs` on the endpoint and send GET requests*
+* Terminate the request url with `/json` or `/xml` and send POST request
+* Terminate the request url with `/logs` and send GET request
 
 ### Heroku App
 * https://covid-19-infections-estimator.herokuapp.com/api/v1/on-covid-19
