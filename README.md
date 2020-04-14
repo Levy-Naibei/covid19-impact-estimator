@@ -20,7 +20,7 @@
 * Terminate the request url with `/logs` and send GET request
 
 ### Heroku App
-* https://covid-19-infections-estimator.herokuapp.com/api/v1/on-covid-19
+* https://covid-19-infections-estimator.herokuapp.com/
 
 ### Endpoints
 
