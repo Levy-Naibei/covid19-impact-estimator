@@ -35,11 +35,18 @@ def estimator_xml():
     """handles responses in xml format"""
 
     if request.method == 'GET':
-        response = Response("", mimetype='text/xml')
+        response = Response("", mimetype='application/xml')
         return response, 200
 
     if request.method == 'POST':
         data = request.get_json()
         output = estimator(data)
-        xml = dicttoxml.dicttoxml(output)
-        return Response(xml, mimetype='text/xml')
+        xml = Response(dicttoxml.dicttoxml(
+            output, attr_type=False),
+            mimetype='application/xml'
+        )
+        return xml, 200
+
+@app.route('/api/v1/on-covid-19/xml', methods=['GET', 'POST'])
+def estimator_logs():
+    """handles application logs"""
