@@ -26,10 +26,10 @@
 
 |       Endpoint                             |               FUNCTIONALITY                             |
 | ----------------------------------------   |:-------------------------------------------------------:|
-| POST    /api/v1/on-covid-19                | This will take input data and return estimation in json |
-| POST    /api/v1/on-covid-19/json           | This will take input data and return estimation in json |
-| POST    /api/v1/on-covid-19/xml            | This will take input data and return estimation in xml  |
-| GET     /api/v1/on-covid-19/logs           | This will return request/response time difference       | 
+| POST &emsp;&emsp;/api/v1/on-covid-19       | This will take input data and return estimation in json |
+| POST &emsp;&emsp;/api/v1/on-covid-19/json  | This will take input data and return estimation in json |
+| POST &emsp;&emsp;/api/v1/on-covid-19/xml   | This will take input data and return estimation in xml  |
+| GET  &emsp;&emsp;/api/v1/on-covid-19/logs  | This will return request/response time difference       | 
 
 
 ### Authors
