@@ -1,21 +1,21 @@
 ## COVID-19 Impact Estimator
 
-### TOOLS USED IN THE CHALLENGE
+### Tools used in the Challenge
 * [Python](https://docs.python.org/3/) - The language used
 * [Flask](http://flask.pocoo.org/) - Web framework to develop REST API
 * [Pylint](https://www.pylint.org/) - Linting Library
-* [PEP8 Style Guide](https://www.pylint.org/)
-* [Postman](https://www.postman.com/) - For Testing the endpoints
+* [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/)
+* [Postman](https://www.postman.com/) - For Testing API endpoint
 
 ### Getting Started
 * `git clone https://github.com/Levy-Naibei/covid19-impact-estimator.git`
 * `cd covid19-impact-estimator`
 * Create and activate virtual environment by `source (your virtual env)/bin/activate` on MAC/Linux 
   and `source (your virtual env)/Scripts/activate` on Windows
-* run `pip install -r requirements.txt`
+* Run `pip install -r requirements.txt`
 * Run `python run.py` to start the server
 * On Postman address bar put `localhost:5000/api/v1/on-covid-19` to consume the API
-* Add input data in the body and send POST resquests
+* Add input data in the body and send POST resquest
 * Terminate the request url with `/json` or `/xml` and send POST request
 * Terminate the request url with `/logs` and send GET request
 
@@ -29,7 +29,7 @@
 | POST &emsp;&emsp;/api/v1/on-covid-19       | This will take input data and return estimation in json |
 | POST &emsp;&emsp;/api/v1/on-covid-19/json  | This will take input data and return estimation in json |
 | POST &emsp;&emsp;/api/v1/on-covid-19/xml   | This will take input data and return estimation in xml  |
-| GET  &emsp;&emsp;/api/v1/on-covid-19/logs  | This will return request/response time difference       | 
+| GET  &emsp;&emsp;/api/v1/on-covid-19/logs  | This will return runtime logs                           | 
 
 
 ### Authors
