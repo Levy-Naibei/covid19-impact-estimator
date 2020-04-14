@@ -1,12 +1,12 @@
 """Novel covid-19 impact estimator program"""
 
 def estimator(data):
-    """function to estimate covid-19 impact"""
+    """Takes input data and returns a response in a given format"""
 
-    # pylint: disable = line-too-long
-    impact = {}  # your best case estimation
+    impact = {}  # best case estimation
     severe_impact = {}  # your severe case estimation
 
+    # Normalizes periods given to days
     if data['periodType'] == 'days':
         time_to_elapse = data['timeToElapse']
     elif data['periodType'] == 'weeks':
@@ -20,35 +20,47 @@ def estimator(data):
     popl = data['region']['avgDailyIncomePopulation']
 
     # challenge-1
-    # currentlyInfected
+    # currently Infected
     impact['currentlyInfected'] = int(data['reportedCases'] * 10)
     severe_impact['currentlyInfected'] = int(data['reportedCases'] * 50)
 
-    # infectionsByRequestedTime
-    impact['infectionsByRequestedTime'] = int(impact['currentlyInfected'] * time_elapse)
-    severe_impact['infectionsByRequestedTime'] = int(severe_impact['currentlyInfected'] * time_elapse)
+    # Projected infections after a specified time
+    impact['infectionsByRequestedTime'] = \
+        int(impact['currentlyInfected'] * time_elapse)
+    severe_impact['infectionsByRequestedTime'] = \
+        int(severe_impact['currentlyInfected'] * time_elapse)
 
     # challenge-2
-    # severeCasesByRequestedTime
-    impact['severeCasesByRequestedTime'] = int(0.15 * impact['infectionsByRequestedTime'])
-    severe_impact['severeCasesByRequestedTime'] = int(0.15 * severe_impact['infectionsByRequestedTime'])
+    # Severe positive cases that can recover when hospitalized
+    impact['severeCasesByRequestedTime'] = \
+        int(0.15 * impact['infectionsByRequestedTime'])
+    severe_impact['severeCasesByRequestedTime'] = \
+        int(0.15 * severe_impact['infectionsByRequestedTime'])
 
-    # total_hospital_beds for covid positive patients
-    impact['hospitalBedsByRequestedTime'] = int(total_hospital_beds - impact['severeCasesByRequestedTime'])
-    severe_impact['hospitalBedsByRequestedTime'] = int(total_hospital_beds - severe_impact['severeCasesByRequestedTime'])
+    # Available beds for covid-19 positive patients
+    impact['hospitalBedsByRequestedTime'] = \
+        int(total_hospital_beds - impact['severeCasesByRequestedTime'])
+    severe_impact['hospitalBedsByRequestedTime'] = \
+        int(total_hospital_beds - severe_impact['severeCasesByRequestedTime'])
 
     # challenge-3
-    # casesForICUByRequestedTime
-    impact['casesForICUByRequestedTime'] = int(0.05 * impact['infectionsByRequestedTime'])
-    severe_impact['casesForICUByRequestedTime'] = int(0.05 * severe_impact['infectionsByRequestedTime'])
+    # ICU cases after a given time
+    impact['casesForICUByRequestedTime'] = \
+        int(0.05 * impact['infectionsByRequestedTime'])
+    severe_impact['casesForICUByRequestedTime'] = \
+        int(0.05 * severe_impact['infectionsByRequestedTime'])
 
-    # casesForVentilatorsByRequestedTime
-    impact['casesForVentilatorsByRequestedTime'] = int(0.02 * impact['infectionsByRequestedTime'])
-    severe_impact['casesForVentilatorsByRequestedTime'] = int(0.02 * severe_impact['infectionsByRequestedTime'])
+    # Cases that require ventilators
+    impact['casesForVentilatorsByRequestedTime'] = \
+        int(0.02 * impact['infectionsByRequestedTime'])
+    severe_impact['casesForVentilatorsByRequestedTime'] = \
+        int(0.02 * severe_impact['infectionsByRequestedTime'])
 
-    # dollarsInFlight
-    impact['dollarsInFlight'] = int((impact['infectionsByRequestedTime'] * popl * daily_income) / time_to_elapse)
-    severe_impact['dollarsInFlight'] = int((severe_impact['infectionsByRequestedTime'] * popl * daily_income) / time_to_elapse)
+    # Money in dollars to be lost daily
+    impact['dollarsInFlight'] = \
+        int((impact['infectionsByRequestedTime'] * popl * daily_income) / time_to_elapse)
+    severe_impact['dollarsInFlight'] = \
+        int((severe_impact['infectionsByRequestedTime'] * popl * daily_income) / time_to_elapse)
 
     output = {
         "data": data,
